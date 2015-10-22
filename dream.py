@@ -1,3 +1,4 @@
+#1.1
 import urllib2
 import sys
 import webbrowser
@@ -287,7 +288,8 @@ def callback(event):
 currentVersion = 1.0
 versionString = Tkinter.StringVar()
 versionString.set("Version: "+str(currentVersion))
-line = urllib2.urlopen("https://raw.githubusercontent.com/Bob343/Dream/master/README.md").read()
+line = urllib2.urlopen("https://raw.githubusercontent.com/Bob343/Dream/master/dream.py").read().split("\n")
+line = line[0].replace("#","")
 line = line.replace("\n","")
 versionLabel = Tkinter.Label(top,textvariable =versionString)
 print float(line)
