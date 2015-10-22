@@ -1,4 +1,6 @@
+import urllib2
 import sys
+import webbrowser
 sys.path.append("lib-tk")
 sys.path.append("caffe-master/python")
 sys.path.append("cv2.so")
@@ -279,6 +281,21 @@ openName.place(x=400, y = 595)
 openingName.trace('w',openChanged)
 browse = Tkinter.Button(top, text = "Open", command = askFile).place(x = 584, y = 590)
 
+def callback(event):
+	webbrowser.open_new("https://github.com/Bob343/Dream/blob/master/dream.py")
+
+currentVersion = 1.0
+versionString = Tkinter.StringVar()
+versionString.set("Version: "+str(currentVersion))
+line = urllib2.urlopen("https://raw.githubusercontent.com/Bob343/Dream/master/README.md").read()
+line = line.replace("\n","")
+versionLabel = Tkinter.Label(top,textvariable =versionString)
+print float(line)
+versionLabel.place(x=800, y = 5)
+newVersion = Tkinter.Label(top,text = "New Version!!!",fg = "blue",cursor = "hand2")
+newVersion.bind("<Button-1>",callback)
+if(currentVersion == float(line)):
+	newVersion.place(x = 800, y =25)
 
 stat = Tkinter.StringVar()
 status = Tkinter.Label(top,textvariable = stat)
