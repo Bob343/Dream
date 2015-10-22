@@ -285,14 +285,13 @@ browse = Tkinter.Button(top, text = "Open", command = askFile).place(x = 584, y 
 def callback(event):
 	webbrowser.open_new("https://github.com/Bob343/Dream/blob/master/dream.py")
 
-currentVersion = 1.0
+currentVersion = 1.1
 versionString = Tkinter.StringVar()
 versionString.set("Version: "+str(currentVersion))
 line = urllib2.urlopen("https://raw.githubusercontent.com/Bob343/Dream/master/dream.py").read().split("\n")
 line = line[0].replace("#","")
 line = line.replace("\n","")
 versionLabel = Tkinter.Label(top,textvariable =versionString)
-print float(line)
 versionLabel.place(x=800, y = 5)
 newVersion = Tkinter.Label(top,text = "New Version!!!",fg = "blue",cursor = "hand2")
 newVersion.bind("<Button-1>",callback)
