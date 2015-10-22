@@ -296,7 +296,7 @@ print float(line)
 versionLabel.place(x=800, y = 5)
 newVersion = Tkinter.Label(top,text = "New Version!!!",fg = "blue",cursor = "hand2")
 newVersion.bind("<Button-1>",callback)
-if(currentVersion == float(line)):
+if(currentVersion != float(line)):
 	newVersion.place(x = 800, y =25)
 
 stat = Tkinter.StringVar()
